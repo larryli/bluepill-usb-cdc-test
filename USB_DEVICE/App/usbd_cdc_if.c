@@ -370,12 +370,12 @@ uint8_t CDC_PeekRxBuffer_FS(uint8_t* Buf, uint16_t Len)
   return USB_CDC_RX_BUFFER_OK;
 }
 
-uint16_t CDC_GetRxBufferBytesAvailable_FS()
+uint16_t CDC_GetRxBufferBytesAvailable_FS(void)
 {
   return (uint16_t)(rxBufferHeadPos - rxBufferTailPos) % HL_RX_BUFFER_SIZE;
 }
 
-void CDC_FlushRxBuffer_FS() {
+void CDC_FlushRxBuffer_FS(void) {
   for (int i = 0; i < HL_RX_BUFFER_SIZE; i++) {
     rxBuffer[i] = 0;
   }
